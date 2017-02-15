@@ -7,7 +7,7 @@ public class Main {
         Thread[] threads = new Thread[20];
         Barcos[] barquitos = new Barcos[20];
         for (int i = 0; i < barquitos.length; i++) {
-            if (i < 9) {
+            if (i <= 9) {
                 barquitos[i] = new Barcos(p, 0, i);
             } else {
                 barquitos[i] = new Barcos(p, 1, i);
