@@ -6,7 +6,8 @@ public class Main {
         Puerta p = new Puerta();
         Thread[] threads = new Thread[20];
         Barcos[] barquitos = new Barcos[20];
-        for (int i = 0; i < barquitos.length; i++) {
+
+       for (int i = 0; i < barquitos.length; i++) {
             if (i <= 9) {
                 barquitos[i] = new Barcos(p, 0, i);
             } else {
@@ -18,6 +19,7 @@ public class Main {
             Thread t1=threads[i];
             t1.start();
         }
+
 
     }
 }

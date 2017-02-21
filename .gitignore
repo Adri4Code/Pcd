@@ -3,3 +3,5 @@
 .idea/inspectionProfiles/
 .idea/workspace.xml
 out/
+/src/TorreDeControl.java
+src/TorreDeControl.java
