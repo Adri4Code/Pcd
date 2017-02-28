@@ -6,13 +6,14 @@ public class Barcos implements Runnable {
     private int direccion;
     private int id;
     private Puerta puerta;
+    private TorreDeControl torreDeControl;
 
-    public Barcos(Puerta _puerta, int _direccion, int _id) {
+    public Barcos(Puerta _puerta, int _direccion, int _id, TorreDeControl torreDeControl) {
         this.puerta = _puerta;
         this.direccion = _direccion;
         this.id = _id;
+        this.torreDeControl = torreDeControl;
     }
-
 
 
     public int getId() {
@@ -33,9 +34,16 @@ public class Barcos implements Runnable {
 
     public void run() {
         if (direccion == 0) {
+            torreDeControl.permisoEntrada();
             puerta.entrar(this);
+            torreDeControl.finEntrada();
+
         } else {
+
+            torreDeControl.permisoSalida();
             puerta.salir(this);
+            torreDeControl.finSalida();
+
         }
     }
 }
