@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Barcos:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Barcos_jar</output-path>
+    <root id="archive" name="Barcos.jar">
+      <element id="module-output" name="Barcos" />
+    </root>
+  </artifact>
+</component>
