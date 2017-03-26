@@ -11,21 +11,24 @@ public class Barcos implements Runnable {
     private boolean petrolero;
     private int cargaAgua;
     private int cargaGasolina;
-    public Barcos(){
-        this.direccion=-1;
-        this.id=-1;
-        this.puerta=null;
-        this.torreDeControl=null;
-        this.petrolero=false;
+
+    public Barcos() {
+        this.direccion = -1;
+        this.id = -1;
+        this.puerta = null;
+        this.torreDeControl = null;
+        this.petrolero = false;
+
     }
 
-    public Barcos(Puerta _puerta, int _direccion, int _id, TorreDeControl torreDeControl, boolean _petrolero,ZonaCarga _zonaDeCarga) {
+    public Barcos(Puerta _puerta, int _direccion, int _id, TorreDeControl torreDeControl, boolean _petrolero, ZonaCarga _zonaDeCarga) {
         this.puerta = _puerta;
         this.direccion = _direccion;
         this.id = _id;
         this.torreDeControl = torreDeControl;
         this.petrolero = _petrolero;
-        this.zonaDeCarga=_zonaDeCarga;
+        this.zonaDeCarga = _zonaDeCarga;
+
 
     }
 
@@ -53,24 +56,27 @@ public class Barcos implements Runnable {
     public void setPetrolero(boolean _petrolero) {
         this.petrolero = _petrolero;
     }
-    public int getCargaAgua(){
+
+    public int getCargaAgua() {
         return this.cargaAgua;
     }
-    public void setCargaAgua(int _cargaAgua){
-        if(this.cargaAgua<=5000) {
-            this.cargaAgua = _cargaAgua;
-        }else{
+
+    public void setCargaAgua(int _cargaAgua) {
+        if (this.cargaAgua <= 5000) {
+            this.cargaAgua += _cargaAgua;
+        } else {
             System.out.println("La capacidad de agua esta llena");
         }
     }
-    public int getCargaGasolina(){
+
+    public int getCargaGasolina() {
         return this.cargaGasolina;
     }
-    public void setCargaGasolina(int _cargaGasolina){
-        if(this.cargaGasolina<=3000) {
-            this.cargaGasolina = _cargaGasolina;
-        }
-        else {
+
+    public void setCargaGasolina(int _cargaGasolina) {
+        if (this.cargaGasolina <= 3000) {
+            this.cargaGasolina += _cargaGasolina;
+        } else {
             System.out.println("La capacidad de gasoleo esta llena");
         }
     }
@@ -80,8 +86,11 @@ public class Barcos implements Runnable {
             torreDeControl.permisoEntrada(this);
             puerta.entrar(this);
             torreDeControl.finEntrada(this);
-            if(getPetrolero()){
+            if (getPetrolero()) {
                 zonaDeCarga.controlEntrada(this);
+                System.out.println("Soy el barco " + this.getId() + " y voy a salir del puerto");
+                puerta.salir(this);
+
             }
 
         } else {
